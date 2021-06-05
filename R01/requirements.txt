@@ -1,5 +1,5 @@
 asgi-redis==1.4.3
-asgiref==1.1.2
+asgiref==3.3.4
 astroid==2.5.6
 attrs==21.2.0
 autobahn==21.3.1
@@ -14,7 +14,7 @@ chardet==4.0.0
 constantly==15.1.0
 cryptography==3.4.7
 daphne==1.4.2
-Django==2.2.24
+Django==3.2.4
 django-bootstrap3==15.0.0
 django-crispy-forms==1.11.2
 gunicorn==20.1.0

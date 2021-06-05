@@ -12,7 +12,7 @@ class Login(View):
 
     def get(self, request):
         if request.user.is_authenticated:
-            return redirect('intranet:homepage')
+            return redirect('intranet:home')
         form = AuthenticationForm()
         return render(request=request, template_name="login.html", context={"login_form":form})
 
@@ -26,9 +26,10 @@ class Login(View):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("intranet:homepage")
+                return redirect("intranet:home")
             else:
                 messages.error(request,"Invalid username or password.")
         else:
             messages.error(request,"Invalid username or password.")
+        return redirect("intranet:login")
 

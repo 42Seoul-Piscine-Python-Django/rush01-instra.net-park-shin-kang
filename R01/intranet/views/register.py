@@ -20,7 +20,7 @@ class Register(View):
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful." )
-            return redirect("intranet:homepage")
+            return redirect("intranet:home")
         messages.error(request, "Unsuccessful registration. Invalid information.")
         return render (request=request, template_name="register.html", context={"register_form":form})
 
