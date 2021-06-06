@@ -5,9 +5,10 @@ from  ..models import Topic, Reply
 from django.views.generic import ListView
 
 class New_topic(ListView):
-
+    """
+    게시글 작성.
+    """
     template_name = 'intra/new_topic.html'
-    paginate_by = 10
 
     def get(self, request):
         topics = Topic.objects.all()
@@ -20,9 +21,7 @@ class New_topic(ListView):
             subject = request.POST['subject']
             message = request.POST['message']
 
-            user_id = request.session.get('user')
-            user = User.objects.last()
-            print("user = ", user)
+            user = self.request.user
 
             topic = Topic.objects.create(
                 subject=subject,

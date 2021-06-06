@@ -5,7 +5,7 @@
 <article>
     <div class="container" role="main">
         <h2>{{forum.subject}}</h2>
-        <h5>작성자.</h5>
+        <h5><a href="#">{{forum.writter.username}}</a></h5>
         <div class="bg-white rounded shadow-sm">
             <div class="board_title"><c:out value="${boardContent.title}"/></div>
             <div class="board_info_box">
