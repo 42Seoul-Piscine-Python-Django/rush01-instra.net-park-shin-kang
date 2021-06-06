@@ -29,3 +29,14 @@ class Comment(models.Model):
     def __str__(self):
         return self.body
 
+
+class ReComment(models.Model):
+    objects = models.Manager()
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    body = models.CharField('대댓글',max_length=150)
+    created_at = models.DateTimeField(auto_now=True)
+    writter = models.ForeignKey(User, related_name='ReComment',on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.body
+

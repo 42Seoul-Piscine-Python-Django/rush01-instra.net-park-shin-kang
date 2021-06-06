@@ -13,4 +13,7 @@ urlpatterns = [
     path('home/new/',views.New_topic.as_view(),name='new_topic'), #게시글 작성 페이지 url 추가
     path('home/<int:forum_id>/',views.forum_Detail.as_view(),name='forum_detail'), #게시글 작성 페이지 url 추가
     path('create_comment/<int:current_id>/',views.Create_comment.as_view(),name='create_comment'), #게시글 작성 페이지 url 추가
+    path('delete_comment/<int:com_id>/<int:current_id>', views.Delete_comment.as_view() , name="delete_comment"),
+    path('create_recomment/<int:current_id>', views.Create_recomment.as_view() , name="create_recomment"),
+    path('delete_recomment/<int:recom_id>/<int:current_id>', views.Delete_recomment.as_view() , name="delete_recomment"),
 ]

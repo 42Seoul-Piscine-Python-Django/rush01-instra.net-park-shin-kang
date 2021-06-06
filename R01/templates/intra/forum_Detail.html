@@ -35,9 +35,25 @@
 </br>
 {% for i in forum.comment_set.all %}
 
-<p>{{ i.writter.username }}</p>
-<p>-> {{i}}</p>
-<p>{{ i.created_at }}</p>
+<p><a href="#">ID : {{ i.writter.username }}</a></p>
+<p>-> {{i}} </p>
+<p> {{ i.created_at }} <a href="{% url 'intranet:delete_comment' i.id forum.id %}"> 삭제 </a> </p>
+
+    <form method="post" action="{% url 'intranet:create_recomment' forum.id %}">
+        {%csrf_token%}
+        {% for recom_form in recomment_form %}
+            {%if recom_form.label != 'Comment' %}
+            {{recom_form.label}} : {{recom_form}}
+            {%endif%}
+        {%endfor%}
+        <input type="hidden" name="comment" value={{i.id}}>
+        <input type="submit">
+    </form>
+    {%for recom in i.recomment_set.all %}
+        <br><a href="#"> ID : {{ recom.writter.username }}</a></br>
+        <br>↪{{recom}}</br>
+        <p> {{ recom.created_at }} <a href="{% url 'intranet:delete_recomment' recom.id forum.id %}"> 삭제 </a> </p>
+    {%endfor%}
 <hr>
 {%endfor%}
 
