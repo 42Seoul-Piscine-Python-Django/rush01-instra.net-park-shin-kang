@@ -13,7 +13,7 @@ class Home(View):
     def get(self, request):
         topics = Topic.objects.all()
         context = {'topics': topics}
-        print("=-=======================")
-        print(dir(topics))
-        print("=========================")
+        # print("=-=======================")
+        # print(dir(topics))
+        # print("=========================")
         return render(request, self.template_name, context)

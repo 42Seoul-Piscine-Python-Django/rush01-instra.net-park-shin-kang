@@ -14,7 +14,7 @@ class Login(View):
         if request.user.is_authenticated:
             return redirect('intranet:home')
         form = AuthenticationForm()
-        return render(request=request, template_name="login.html", context={"login_form":form})
+        return render(request, self.template_name, context={"login_form":form})
 
 
     def post(self, request):

@@ -12,7 +12,7 @@ class Register(View):
 
     def get(self, request):
         form = NewUserForm
-        return render (request=request, template_name="register.html", context={"register_form":form})
+        return render (request, self.template_name, context={"register_form":form})
 
     def post(self, request):
         form = NewUserForm(request.POST)
@@ -22,5 +22,5 @@ class Register(View):
             messages.success(request, "Registration successful." )
             return redirect("intranet:home")
         messages.error(request, "Unsuccessful registration. Invalid information.")
-        return render (request=request, template_name="register.html", context={"register_form":form})
+        return render (request, self.template_name, context={"register_form":form})
 

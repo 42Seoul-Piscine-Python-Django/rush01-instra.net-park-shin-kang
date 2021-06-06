@@ -5,10 +5,12 @@ from  ..models import Topic, Reply
 
 class New_topic(View):
 
+    template_name = 'intra/new_topic.html'
+
     def get(self, request):
         topics = Topic.objects.all()
         context = {'topics': topics}
-        return render(request,'intra/new_topic.html',{'topics':topics})
+        return render(request, self.template_name, {'topics':topics})
 
     def post(self, request):
         topics = Topic.objects.all()

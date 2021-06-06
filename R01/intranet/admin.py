@@ -3,6 +3,6 @@ from  .models import Topic, Reply
 
 # Register your models here.
 
-admin.site.register(Topic)
 admin.site.register(Reply)
+admin.site.register(Topic)
 

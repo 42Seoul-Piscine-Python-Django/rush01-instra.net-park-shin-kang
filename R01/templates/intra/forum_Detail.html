@@ -1,0 +1,10 @@
+{% extends  'intra/base.html' %}
+{% if forums %}
+{% block content %}
+
+
+    {% for forum in forums %}
+        <td> {{forum.subject}} </td>
+    {% endfor %}
+{% endblock %}
+{% endif %}

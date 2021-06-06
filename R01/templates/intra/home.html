@@ -6,10 +6,10 @@
 <table class="table">
     <thead class="bg-info">
         <tr>
-            <th>작성자</th>
             <th>제목</th>
             <th>조회수</th>
             <th>댓글수</th>
+            <th>작성자</th>
             <th>작성일자</th>
         </tr>
 
@@ -18,10 +18,14 @@
     <tbody>
         {% for topic in topics %}
         <tr>
-            <td>{{topic.writter.username }}</td>
-            <td>{{topic.subject }}</td>
+            <td>
+                <a href="{% url 'intranet:forum_detail' topic.id %}">{{topic.subject }}</a>
+            </td>
             <td>0</td>
             <td>0</td>
+            <td>
+                <a href="\">{{topic.writter.username }}</a>
+            </td>
             <td>{{topic.last_updated}}</td>
         </tr>
         {% endfor %}
