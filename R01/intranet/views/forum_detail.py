@@ -13,7 +13,10 @@ class forum_Detail(View):
     template_name = 'intra/forum_Detail.html'
 
     def get(self, request, forum_id):
-        forums = get_object_or_404(Topic, pk=forum_id)
-        print("forums ==========", dir(forums))
-        context = {'forums' : forums}
+        print("num = ", forum_id)
+        # forums = get_object_or_404(Topic, pk=forum_id)
+        forums = Topic.objects.filter(id=forum_id)
+        context = {'data' : forums}
+        # return render(request, self.template_name, context)
+        # print(Topic.objects.all())
         return render(request, self.template_name, context)
