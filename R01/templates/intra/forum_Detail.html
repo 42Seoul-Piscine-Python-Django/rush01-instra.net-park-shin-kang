@@ -18,9 +18,9 @@
             </br>
         </div>
         <div style="margin-top : 20px">
-            <button type="button" class="btn btn-sm btn-primary" id="btnUpdate">수정</button>
-            <button type="button" class="btn btn-sm btn-primary" id="btnDelete">삭제</button>
-            <button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
+            <a class="btn btn-sm btn-primary" href="{% url 'intranet:delete_forum' forum.id %}">
+                삭제
+            </a>
         </div>
     </div>
 </article>
@@ -29,7 +29,7 @@
 <form method="post" action="{% url 'intranet:create_comment' forum.id %}">
     {%csrf_token%}
     {{comment_form}}
-    <input type="submit">
+    <input class="btn btn-sm btn-primary" type="submit">
 </form>
 <br>
 </br>
@@ -47,7 +47,7 @@
             {%endif%}
         {%endfor%}
         <input type="hidden" name="comment" value={{i.id}}>
-        <input type="submit">
+        <input class="btn btn-sm btn-primary" type="submit">
     </form>
     {%for recom in i.recomment_set.all %}
         <br><a href="#"> ID : {{ recom.writter.username }}</a></br>

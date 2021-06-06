@@ -8,6 +8,7 @@ from .logout import *
 from .home import *
 from .new_topic import *
 from .forum_detail import *
+from .delete_forum import *
 from .create_comment import *
 from .delete_comment import *
 from .create_recomment import *
