@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.models import User
-from  ..models import Topic, Reply
+from  ..models import Topic
 from django.views.generic import ListView
 
 class New_topic(ListView):
@@ -22,17 +22,13 @@ class New_topic(ListView):
             message = request.POST['message']
 
             user = self.request.user
-
+            print("=====================================")
+            print("message = ", message)
+            print("=====================================")
             topic = Topic.objects.create(
                 subject=subject,
                 message=message,
                 writter=user
-            )
-
-            post = Reply.objects.create(
-                message=message,
-                created_by=user
-
             )
 
             return redirect('intranet:home')

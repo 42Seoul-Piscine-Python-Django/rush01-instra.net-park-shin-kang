@@ -1,5 +1,5 @@
 {% extends  'intra/base.html' %}
-{% if forum %}
+{% if data %}
 {% block content %}
 
 <article>
@@ -24,5 +24,22 @@
         </div>
     </div>
 </article>
+<br>
+</br>
+<form method="post" action="{% url 'intranet:create_comment' forum.id %}">
+    {%csrf_token%}
+    {{comment_form}}
+    <input type="submit">
+</form>
+<br>
+</br>
+{% for i in forum.comment_set.all %}
+
+<p>{{ i.writter.username }}</p>
+<p>-> {{i}}</p>
+<p>{{ i.created_at }}</p>
+<hr>
+{%endfor%}
+
 {% endblock %}
 {% endif %}
