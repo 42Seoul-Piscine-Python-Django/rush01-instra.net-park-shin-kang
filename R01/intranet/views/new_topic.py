@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.models import User
 from  ..models import Topic, Reply
+from django.views.generic import ListView
 
-class New_topic(View):
+class New_topic(ListView):
 
     template_name = 'intra/new_topic.html'
+    paginate_by = 10
 
     def get(self, request):
         topics = Topic.objects.all()
