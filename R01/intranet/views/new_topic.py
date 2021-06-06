@@ -20,7 +20,9 @@ class New_topic(ListView):
             subject = request.POST['subject']
             message = request.POST['message']
 
-            user = User.objects.first()
+            user_id = request.session.get('user')
+            user = User.objects.last()
+            print("user = ", user)
 
             topic = Topic.objects.create(
                 subject=subject,

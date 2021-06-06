@@ -13,7 +13,9 @@ class Home(View):
     template_name = 'intra/home.html'
 
     def get(self, request):
+        page = request.GET.get('page', '1')
         topics = Topic.objects.all()
-        paginator = Paginator()
-        context = {'topics': topics}
+        paginator = Paginator(topics, 10)
+        page_obj = paginator.get_page(page)
+        context = {'topics': page_obj}
         return render(request, self.template_name, context)
