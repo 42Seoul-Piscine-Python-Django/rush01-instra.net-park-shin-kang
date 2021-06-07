@@ -1,11 +1,15 @@
-{% load static %}
+{% load static %} {% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     {% block title %}
     {% endblock %}
     <meta charset="UTF-8">
-    <link rel = "stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"></script>
+    {% bootstrap_css %} {% bootstrap_javascript %}
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
