@@ -17,4 +17,5 @@ urlpatterns = [
     path('delete_comment/<int:com_id>/<int:current_id>', views.Delete_comment.as_view() , name="delete_comment"),
     path('create_recomment/<int:current_id>', views.Create_recomment.as_view() , name="create_recomment"),
     path('delete_recomment/<int:recom_id>/<int:current_id>', views.Delete_recomment.as_view() , name="delete_recomment"),
+    path('profile/<int:forum_id>',views.ProfileView.as_view(),name='profile'),
 ]
