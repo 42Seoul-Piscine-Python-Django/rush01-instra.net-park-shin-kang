@@ -3,6 +3,11 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
+class Profile(models.Model):
+    user = models.ForeignKey(User, related_name='profile_user',on_delete=models.CASCADE, null=False, primary_key=True)
+    image = models.ImageField(null=True, blank=True)
+
 # 게시판 화면.
 class Topic(models.Model):
     objects = models.Manager()

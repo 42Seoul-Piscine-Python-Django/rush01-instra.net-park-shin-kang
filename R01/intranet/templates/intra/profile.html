@@ -1,0 +1,24 @@
+{% extends  'intra/base.html' %}
+
+
+{% block content %}
+{% if form %}
+<span>name : {{ user_profile.user }}</span>
+{% if user_profile.image %}
+<span>image :</span> <img src="{{ user_profile.image.url }}" /> 
+{% endif %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Update">
+</form>
+{% else %}
+<ul>
+    <li>username : {{ user_profile.user }}  </li>
+    <li>email : {{ user_profile.user.email }}  </li>
+    {% if user_profile.image %}
+    <li>image : <img src="{{ user_profile.image.url }}" /> </li>
+    {% endif %}
+</ul>
+{% endif %}
+{% endblock %}

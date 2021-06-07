@@ -23,9 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0@$ctxo-169^kijr)^_*paqz3y4t+%*&#2xv$w_9&4-l1dguqd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+]
 
 
 # Application definition
@@ -124,8 +128,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Media files - 업로드를 하는 URL과 디렉토리 설정
+MEDIA_URL = '/media/' # 업로드 할 경로
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #로컬 디렉토리 어디에 저장할 것인지

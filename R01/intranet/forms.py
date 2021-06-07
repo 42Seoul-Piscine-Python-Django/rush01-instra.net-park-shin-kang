@@ -1,8 +1,13 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from intranet.models import Comment, ReComment
+from intranet.models import Comment, ReComment, Profile
 
+class ProfileForm(forms.ModelForm):
+    email=forms.EmailField(required=False)
+    class Meta:
+        model = Profile
+        fields = ('image',)
 
 class NewUserForm(UserCreationForm):
 

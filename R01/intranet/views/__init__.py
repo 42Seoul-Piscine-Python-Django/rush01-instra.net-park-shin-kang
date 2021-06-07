@@ -13,3 +13,4 @@ from .create_comment import *
 from .delete_comment import *
 from .create_recomment import *
 from .delete_recomment import *
+from .profile import *
