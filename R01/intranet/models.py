@@ -5,8 +5,9 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
-    user = models.ForeignKey(User, related_name='profile_user',on_delete=models.CASCADE, null=False, primary_key=True)
+    user = models.OneToOneField(User, related_name='profile_user',on_delete=models.CASCADE, null=False, primary_key=True, unique=True)
     image = models.ImageField(null=True, blank=True)
+    description = models.TextField(default='',null=True, blank=True)
 
 # 게시판 화면.
 class Topic(models.Model):

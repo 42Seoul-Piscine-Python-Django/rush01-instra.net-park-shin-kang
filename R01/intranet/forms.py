@@ -4,10 +4,12 @@ from django.contrib.auth.models import User
 from intranet.models import Comment, ReComment, Profile
 
 class ProfileForm(forms.ModelForm):
-    email=forms.EmailField(required=False)
+    surname=forms.CharField(required=False,max_length=50)
+    name=forms.CharField(required=False,max_length=50)
+    email=forms.EmailField(required=False,max_length=50)
     class Meta:
         model = Profile
-        fields = ('image',)
+        fields = ('surname','name','email','image','description')
 
 class NewUserForm(UserCreationForm):
 

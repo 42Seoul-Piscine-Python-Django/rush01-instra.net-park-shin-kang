@@ -2,23 +2,28 @@
 
 
 {% block content %}
-{% if form %}
-<span>name : {{ user_profile.user }}</span>
-{% if user_profile.image %}
-<span>image :</span> <img src="{{ user_profile.image.url }}" /> 
-{% endif %}
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Update">
-</form>
-{% else %}
+<h2>내 정보</h2>
 <ul>
     <li>username : {{ user_profile.user }}  </li>
+    <li>surname : {{ user_profile.user.first_name }}  </li>
+    <li>name : {{ user_profile.user.last_name }}  </li>
     <li>email : {{ user_profile.user.email }}  </li>
+    <li>description : {{ user_profile.description }}  </li>
     {% if user_profile.image %}
-    <li>image : <img src="{{ user_profile.image.url }}" /> </li>
+    <li>image : <img style="width: auto; height: 300px;" src="{{ user_profile.image.url }}" /> </li>
     {% endif %}
 </ul>
+{% if form %}
+<h2>수정하기</h2>
+{% if user_profile.image %}
+<span>image :</span> <img style="width: auto; height: 300px;" src="{{ user_profile.image.url }}" /> 
+{% endif %}
+<form action="" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        {% csrf_token %}
+        {{ form }}
+        <input class="btn btn-primary" type="submit" value="Update">
+    </div>
+</form>
 {% endif %}
 {% endblock %}

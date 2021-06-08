@@ -1,10 +1,8 @@
-from django.views import View
 from  ..models import Topic, Profile
 from ..forms import ProfileForm
 from django.shortcuts import render
-from django.shortcuts import render, redirect
-from django.views.generic import ListView, View
-from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render
+from django.views.generic import ListView
 
 class ProfileView(ListView):
     template_name = 'intra/profile.html'
@@ -32,12 +30,13 @@ class ProfileView(ListView):
                 f.save()
                 u = request.user
                 u.email = form.cleaned_data['email']
+                u.first_name = form.cleaned_data['surname']
+                u.last_name = form.cleaned_data['name']
                 u.save()
 
             except Exception as e:
                 print("e",e)
 
-        print("3")
         
         forums = Topic.objects.filter(id=forum_id)
         profile = Profile.objects.filter(user=forums[0].writter)
