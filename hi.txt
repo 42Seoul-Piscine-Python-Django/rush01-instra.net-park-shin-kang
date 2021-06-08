@@ -62,7 +62,7 @@ python3 manage.py startapp appname
 
 nginx -c $HOME/Desktop/Piscine_Python_Django/d08/nginx.conf
 
-nginx -c /Users/seapark/rush01/rush01-instra.net-park-shin-kang/R01/nginx.conf
+nginx -c /Users/seapark/rush01/R01/nginx.conf
 
 nginx -s stop
 
